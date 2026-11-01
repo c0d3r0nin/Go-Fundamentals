@@ -1,14 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var first, second int
-	fmt.Scan(&first)
-	fmt.Scan(&second)
-	// Print one greeting per line, first name first.
+	var a, b int
+	fmt.Scan(&a)
+	fmt.Scan(&b)
 
-	fmt.Println(first + second)
-	fmt.Println(first - second)
-	fmt.Println(first == second)
+	quotient := a / b
+
+	remainder := a % b
+
+	fmt.Println(quotient)
+	fmt.Println(remainder)
+
 }

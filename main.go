@@ -6,6 +6,7 @@ type Point struct {
 	X, Y int
 }
 
+// Receiver function aka Method
 func (p Point) Squared_Distance_Between_Two_Points(other Point) int {
 	dx := p.X - other.X
 	dy := p.Y - other.Y

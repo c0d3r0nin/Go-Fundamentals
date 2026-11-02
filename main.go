@@ -1,25 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
 
-type Point struct {
-	X, Y int
-}
-
-// Receiver function aka Method
-func (p Point) Squared_Distance_Between_Two_Points(other Point) int {
-	dx := p.X - other.X
-	dy := p.Y - other.Y
-	return dx*dx + dy*dy
+func increment(n *int) {
+	// TODO: make the int that n points at one larger
+	*n = *n + 1
 }
 
 func main() {
-	var x1, y1, x2, y2 int
-	fmt.Scan(&x1)
-	fmt.Scan(&y1)
-	fmt.Scan(&x2)
-	fmt.Scan(&y2)
-	pOne := Point{X: x1, Y: y1}
-	pTwo := Point{X: x2, Y: y2}
-	fmt.Println(pOne.Squared_Distance_Between_Two_Points(pTwo))
+	r := bufio.NewReader(os.Stdin)
+	line, _ := r.ReadString('\n')
+	parts := strings.Fields(strings.TrimSpace(line))
+	nums := make([]int, 0, len(parts))
+	for _, p := range parts {
+		v, _ := strconv.Atoi(p)
+		nums = append(nums, v)
+	}
+	for i := range nums {
+		increment(&nums[i])
+	}
+	for _, v := range nums {
+		fmt.Println(v)
+	}
 }
